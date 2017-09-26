@@ -1,14 +1,14 @@
-import * as React from 'react'
-import LoginButton from './loginButton'
-import { FlexColumnWrapper } from './generic'
+import * as React from 'react';
+import LoginButton from './loginButton';
+import { FlexColumnWrapper } from './generic';
 
-const oAuthBase = 'https://office.cap3.de:57503/auth'
+const oAuthBase = 'https://auth.waterchat.core.cap3.de';
 
 const sessionCallBack = (base: string) => {
-  const { origin } = window.location
-  const path = base.endsWith('/') ? base : `${base}/`
-  return `${origin}${path}`
-}
+  const { origin } = window.location;
+  const path = base.endsWith('/') ? base : `${base}/`;
+  return `${origin}${path}`;
+};
 
 export const Login = (baseUrl: string) => () =>
   <FlexColumnWrapper>
@@ -20,4 +20,4 @@ export const Login = (baseUrl: string) => () =>
       url={`${oAuthBase}/twitter?callback=${sessionCallBack(baseUrl)}`}
       label="sign in with twitter"
     />
-  </FlexColumnWrapper>
+  </FlexColumnWrapper>;
